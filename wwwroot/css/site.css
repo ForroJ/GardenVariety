@@ -1,0 +1,90 @@
+html {
+    font-size: 14px;
+    background-color: wheat;
+}
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+input.btn-create {
+    background-color: lawngreen;
+    color: white;
+    border: none;
+}
+.link-details {
+    color: lawngreen;
+    text-decoration: none;
+}
+
+    .link-details:hover {
+        color: darkolivegreen;
+        text-decoration: underline;
+    }
+    input.btn-create:hover {
+        background-color: darkolivegreen;
+        color: white;
+    }
+   
+
+input.btn-delete {
+    background-color: tomato;
+    color: white;
+    border: none;
+}
+.link-delete {
+    color: tomato;
+    text-decoration: none;
+}
+
+    .link-delete:hover {
+        color: darkred;
+        text-decoration: underline;
+    }
+    input.btn-delete:hover {
+        background-color: darkred;
+        color: white;
+    }
+input.btn-save {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+}
+.link-edit {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+    .link-edit:hover {
+        color: darkslateblue;
+        text-decoration: underline;
+    }
+    input.btn-save:hover {
+        background-color: darkslateblue;
+        color: white;
+    }
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.navbar {
+    background-color: green !important; 
+}
+    .navbar .nav-link {
+        color: white !important;
+    }
+        .navbar .nav-link:hover {
+            color: red !important;
+        }
