@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using GardenVariety.Data;
 namespace GardenVariety
 {
     public class Program
@@ -5,6 +8,8 @@ namespace GardenVariety
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<GardenVarietyContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("GardenVarietyContext") ?? throw new InvalidOperationException("Connection string 'GardenVarietyContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();

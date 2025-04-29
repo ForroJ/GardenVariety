@@ -1,0 +1,49 @@
+﻿@page
+@model GardenVariety.Pages.Harvests.IndexModel
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GardenVariety</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GardenVariety.styles.css" asp-append-version="true" />
+</head>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Harvester[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Harvester[0].Garden)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Harvester) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Garden.Name)
+            </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="link-edit">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="link-details">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="link-delete">Delete</a>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,67 @@
+﻿@page
+@model GardenVariety.Pages.Gardens.IndexModel
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - GardenVariety</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/GardenVariety.styles.css" asp-append-version="true" />
+</head>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Garden[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garden[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garden[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garden[0].PlantingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garden[0].Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Garden) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlantingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GardenId" class="link-edit">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GardenId" class="link-details">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GardenId" class="link-delete">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
